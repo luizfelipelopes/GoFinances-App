@@ -53,3 +53,17 @@ buck-out/
 .expo/
 web-build/
 dist/
+
+#OTHERS
+.bundle/
+__tests__/
+android/
+ios/
+.buckconfig
+.flowconfig
+.ruby-version
+.watchmanconfig
+babel.config.js
+Gemfile
+metro.config.js
+.gitattributes
