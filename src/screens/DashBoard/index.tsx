@@ -1,9 +1,7 @@
-import { Feather } from "@expo/vector-icons";
 import React from "react";
-import { Text, View } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
 import { HighlightsCard } from "../../components/HighlightsCard";
 import { HighlightsCards } from "../../components/HighlightsCard/styles";
+import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
 
 
 import {
@@ -15,10 +13,54 @@ import {
     UserWrapper,
     UserGreeting,
     UserName,
-    Icon
+    Icon,
+    Transactions,
+    Title,
+    TransactionsList
  } from './styles';
 
+ export interface DataListProps extends TransactionCardProps {
+    id: string;
+ }
+
 export function DashBoard() {
+
+    const data: DataListProps[] = [
+        {
+            id: '1',
+            type: 'positive',
+            title: "Desenvolvimento de Site",
+            amount: "R$ 12.000,00",
+            category:{
+                name: 'Vendas',
+                icon: 'dollar-sign'
+            },
+            date: '13/04/2020'
+        },
+        {
+            id: '2',
+            type: 'negative',
+            title: "Hamburgueria Pizzy",
+            amount: "R$ 59,00",
+            category:{
+                name: 'Alimentação',
+                icon: 'coffee'
+            },
+            date: '10/04/2020'
+        },
+        {
+            id: '3',
+            type: 'negative',
+            title: "Aluguel do apartamento",
+            amount: "R$ 1.200,00",
+            category:{
+                name: 'Casa',
+                icon: 'shopping-bag'
+            },
+            date: '10/04/2020'
+        },
+    ];
+
     return(
         <Container>
             <Header>
@@ -32,6 +74,7 @@ export function DashBoard() {
                             <UserName>Luiz Felipe</UserName>
                         </User>
                     </UserInfo>
+
                     <Icon name="power" />
                 </UserWrapper>
             </Header>
@@ -53,6 +96,26 @@ export function DashBoard() {
                     amount={'R$ 16.141,00'}
                     lastTransaction={'01 à 16 de abril'}/>
             </HighlightsCards>
+
+
+
+
+                <Transactions>
+                    <Title>Listagem</Title>
+
+                    <TransactionsList
+                        data={data}
+                        keyExtractor={ item => item.id }
+                        renderItem={({ item }) => <TransactionCard data={item} />}
+                    />
+
+
+
+                </Transactions>
+
+
+
+
         </Container>
     );
 }

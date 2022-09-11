@@ -9,8 +9,11 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/theme';
-import { DashBoard } from './src/screens/DashBoard';
 import AppLoading from 'expo-app-loading';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import { AppRoutes } from './src/routes/app.routes';
 
 export default function App(): JSX.Element {
 
@@ -26,7 +29,11 @@ export default function App(): JSX.Element {
 
   return (
     <ThemeProvider theme={theme}>
-      <DashBoard />
+
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
+
     </ThemeProvider>
   );
 }
