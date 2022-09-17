@@ -67,9 +67,6 @@ export function Resume() {
             return acc + Number(expensive.amount)
         }, 0);
 
-        console.log(expensivesTotal);
-
-
         const totalByCategories: CategoryData[] = [];
 
         categories.forEach(category => {
