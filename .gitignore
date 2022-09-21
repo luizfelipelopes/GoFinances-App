@@ -67,3 +67,5 @@ babel.config.js
 Gemfile
 metro.config.js
 .gitattributes
+
+.env
